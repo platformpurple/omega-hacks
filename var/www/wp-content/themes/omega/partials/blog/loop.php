@@ -8,9 +8,39 @@
  *
  * @copyright (c) 2014 Oxygenna.com
  * @license **LICENSE**
- * @version 1.6.0
- */
+ * @version 1.7.3
+ */ ?>
+<div id="masthead" class="navbar navbar-static-top oxy-mega-menu <?php echo implode( ' ', $classes ); ?>" role="banner">
+    <div class="<?php echo $container_class; ?>">
 
+        <div class="navbar-header" style="background: rgba(255, 255, 255, 0.5);">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".main-navbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <?php oxy_create_logo(); ?>
+        </div>
+
+        <nav class="collapse navbar-collapse main-navbar" role="navigation" style="background: rgba(255, 255, 255, 0.5);">
+
+            <?php
+                $primary_menu = wp_get_nav_menu_items( $slug );
+                if ( !empty( "cat" ) ) {
+                    wp_nav_menu( array(
+                        'menu' => 'cat',
+                        'menu_class' => 'nav navbar-nav',
+                        'depth' => 4,
+                        'walker' => new FrontendBootstrapMegaMenuWalker(),
+                    ));
+                }
+            ?>
+
+        </nav>
+    </div>
+</div>
+<br>
+<?php
 if( have_posts() ) {
     $post_count = 1;
     $page = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
