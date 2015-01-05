@@ -1,6 +1,89 @@
 <div class="figure <?php echo implode( ' ', $figure_classes ); ?> <?php echo $image_stretch  ?>" data-os-animation="<?php echo $scroll_animation; ?>" data-os-animation-delay="<?php echo $scroll_animation_delay; ?>s">
     <?php if( !empty( $hover_link ) ) : ?>
-        <a href="<?php echo $hover_link; ?>" class="figure-image <?php echo implode( ' ', $hover_link_classes ); ?>" data-links="<?php echo implode( ',', $gallery_images ); ?>" target="<?php echo $link_target; ?>">
+        <?php if( $hover_link == 'html' ): ?>
+            <div id="portfolio-html-container-<?php echo get_the_ID() ?>" class="portfolio-html-container mfp-hide mfp-with-zoom">
+
+            </div>
+            <a href="#portfolio-html-container-<?php echo get_the_ID() ?>" class="open-popup-link-<?php echo get_the_ID() ?> figure-image">
+            <script type="text/javascript">
+                jQuery(function() {
+
+                    jQuery('.open-popup-link-<?php echo get_the_ID() ?>').magnificPopup({
+                        type: 'inline',
+                        midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+                    });
+
+                    jQuery('.open-popup-link-<?php echo get_the_ID() ?>').click(function(){
+
+                        var post_id = '<?php echo get_the_ID() ?>';
+                        var admin_url = '<?php echo admin_url('admin-ajax.php'); ?>';
+
+                        jQuery.ajax({
+                            type: 'POST',
+                            url: admin_url,
+                            dataType: 'html',
+                            data: {
+                                action: 'loadHTMLpopContent',
+                                post_id: post_id
+
+                            },
+                            beforeSend: function() {
+                                loadingHtml = jQuery('.selectedRow').html();
+                                jQuery('#portfolio-html-container-<?php echo get_the_ID() ?>').css('background', '#232323');
+                                jQuery('#portfolio-html-container-<?php echo get_the_ID() ?>').css('text-align', 'center');
+                                jQuery('#portfolio-html-container-<?php echo get_the_ID() ?>').html("<img src='<?php echo site_url()?>/wp-content/themes/omega/assets/images/loading.gif' />");
+                            },
+                            complete: function(){
+                                jQuery('#portfolio-html-container-<?php echo get_the_ID() ?>').html(loadingHtml);
+                            },
+                            success: function(data, textStatus, XMLHttpRequest){
+                                jQuery('#portfolio-html-container-<?php echo get_the_ID() ?>').css('background', '#fff');
+                                jQuery('#portfolio-html-container-<?php echo get_the_ID() ?>').css('text-align', 'inherit');
+                                jQuery("#portfolio-html-container-<?php echo get_the_ID() ?>").html(data);
+                            },
+                            error: function(MLHttpRequest, textStatus, errorThrown){
+                                /*alert(errorThrown);*/
+                            }
+                        });
+                    });
+
+
+
+
+                });
+            </script>
+            <style type="text/css">
+                .portfolio-html-container{
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    background: #fff;
+                    padding: 15px;
+                    box-shadow: 1px 1px 10px #ccc;
+                    margin-top: 50px;
+                    position: relative;
+                }
+                .portfolio-html-container h2{
+                    padding-bottom: 20px;
+                }
+
+                .portfolio-html-container .mfp-close{
+                    top: 0;
+                }
+                @media (max-width: 1200px){
+                    .portfolio-html-container {
+                        max-width: 1000px;
+                    }
+                }
+
+                @media (max-width: 991px){
+                    .portfolio-html-container {
+                        max-width: 780px;
+                    }
+                }
+            </style>
+        <?php else: ?>
+            <a href="<?php echo $hover_link; ?>" class="figure-image <?php echo implode( ' ', $hover_link_classes ); ?>" data-links="<?php echo implode( ',', $gallery_images ); ?>" target="<?php echo $link_target; ?>">
+        <?php endif;?>
     <?php else : ?>
         <span class="figure-image">
     <?php endif; ?>
