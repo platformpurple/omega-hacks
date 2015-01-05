@@ -8,7 +8,7 @@
  *
  * @copyright (c) 2014 Oxygenna.com
  * @license **LICENSE**
- * @version 1.6.0
+ * @version 1.7.3
  */
 ?>
 <div class="<?php echo implode( ' ', $classes ); ?>" data-padding="<?php echo $item_padding; ?>" data-col-xs="<?php echo $xs_col; ?>" data-col-sm="<?php echo $sm_col; ?>" data-col-md="<?php echo $md_col; ?>" data-col-lg="<?php echo $lg_col; ?>" data-layout="<?php echo $layout_mode; ?>">
@@ -55,6 +55,9 @@
                 default:
                 case 'standard':
                     // do nothing default is image with no link
+                break;
+                case 'html':
+                    $magnific_type = 'html';
                 break;
             }
             ?>
