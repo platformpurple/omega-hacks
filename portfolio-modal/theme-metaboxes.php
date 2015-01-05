@@ -8,7 +8,7 @@
  *
  * @copyright (c) 2014 Oxygenna.com
  * @license **LICENSE**
- * @version 1.6.0
+ * @version 1.7.3
  */
 
 global $oxy_theme;
@@ -566,6 +566,7 @@ $oxy_theme->register_metabox( array(
                 'standard' => __('Standard Post', 'omega-admin-td'),
                 'video'    => __('Video Post', 'omega-admin-td'),
                 'gallery'  => __('Gallery Post', 'omega-admin-td'),
+                'html'  => __('HTML Post', 'omega-admin-td'),
             ),
             'default' => 'standard',
         ),
@@ -638,7 +639,8 @@ $link_options = array(
                 'portfolio' => __('Portfolio', 'omega-admin-td'),
                 'category'  => __('Category', 'omega-admin-td'),
                 'url'       => __('URL', 'omega-admin-td'),
-                'no-link'   => __('No Link', 'omega-admin-td')
+                'no-link'   => __('No Link', 'omega-admin-td'),
+                'html'      => __('Portfolio Html', 'omega-admin-td')
             ),
             'default' => 'default',
         ),
@@ -682,6 +684,15 @@ $link_options = array(
             'desc'     => __('Choose a URL to link this item to', 'omega-admin-td'),
             'id'      => 'url_link',
             'type'    => 'text',
+            'default' =>  '',
+        ),
+        array(
+            'name'     => __('Portfolio Link', 'omega-admin-td'),
+            'desc'     => __('Choose a portfolio item to link this item to', 'omega-admin-td'),
+            'id'       => 'portfolio_link',
+            'type'     => 'select',
+            'options'  => 'taxonomy',
+            'taxonomy' => 'oxy_portfolio_image',
             'default' =>  '',
         ),
         array(
@@ -807,7 +818,7 @@ $oxy_theme->register_metabox( array(
             'name'    => __('Masonry Image Width ', 'omega-admin-td'),
             'desc'    => __('Select the width that the masonry portfolio shortcode will use for this item (normal 1 column wide 2 columns)', 'omega-admin-td'),
             'id'      => 'masonry_width',
-            'type'    => 'radio',
+            'type'    => 'select',
             'options' => array(
                 'normal'    => __('Normal', 'omega-admin-td'),
                 'wide'   => __('Wide', 'omega-admin-td'),
