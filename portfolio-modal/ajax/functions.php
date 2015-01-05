@@ -8,7 +8,7 @@
  *
  * @copyright (c) 2014 Oxygenna.com
  * @license http://wiki.envato.com/support/legal-terms/licensing-terms/
- * @version 1.7.5
+ * @version 1.7.3
  */
 
 // create defines
@@ -68,3 +68,20 @@ function oxy_check_for_blog_switcher( $name ) {
     return $name;
 }
 add_filter( 'oxy_blog_type', 'oxy_check_for_blog_switcher' );
+
+function loadHTMLpopContent(){
+    $post_id = $_POST["post_id"];
+
+    $content_post = get_post($post_id);
+    $content = $content_post->post_content;
+    ?>
+    <button title="Close (Esc)" type="button" class="mfp-close">×</button>
+    <h2><?php echo get_the_title( $post_id ) ?></h2>
+    <div><?php echo $content ?></div>
+    <?php
+    die();
+}
+
+add_action( 'wp_ajax_loadHTMLpopContent', 'loadHTMLpopContent' );
+add_action( 'wp_ajax_nopriv_loadHTMLpopContent', 'loadHTMLpopContent' );
+
