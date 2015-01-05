@@ -8,7 +8,7 @@
  *
  * @copyright (c) 2014 Oxygenna.com
  * @license http://wiki.envato.com/support/legal-terms/licensing-terms/
- * @version 1.6.0
+ * @version 1.7.3
  */
 
 /****************** VISUAL COMPOSER SHORTCODES *******************************/
@@ -38,7 +38,8 @@ function oxy_shortcode_section( $atts , $content = '') {
         'background_image_parallax_start' => '50',
         'background_image_parallax_end'   => '60',
         'height'                          => 'normal',
-        'transparency'                    => 'opaque'
+        'transparency'                    => 'opaque',
+        'vertical_alignment'              => 'top'
     ), $atts ) );
 
     global $oxy_is_iphone, $oxy_is_ipad, $oxy_is_android;
@@ -72,7 +73,7 @@ function oxy_shortcode_section( $atts , $content = '') {
     $section_classes[] = 'section-text-' . $text_shadow;
     $section_classes[] = 'section-inner-' . $inner_shadow;
     $section_classes[] = 'section-' . $height;
-    $section_classes[] = 'section-'. $transparency;
+    $section_classes[] = 'section-' . $transparency;        
 
     $background_image_url = '';
     if( is_numeric( $background_image ) ) {
@@ -97,6 +98,7 @@ function oxy_shortcode_section( $atts , $content = '') {
     }
 
     $container_class = $width == 'padded' ? 'container' : 'container-fullwidth';
+    $row_class = 'vertical-' . $vertical_alignment;
 
     $overlay_colour = oxy_hex2rgba( $overlay_colour, $overlay_opacity );
 
@@ -367,6 +369,9 @@ function oxy_section_vc_single_image($atts , $content = '') {
                 $magnific_link_url = $full[0];
                 $magnific_link_classes[] = 'magnific-gallery';
             }
+        break;
+        case 'html':
+            $magnific_link_url = 'html';
         break;
     }
 
@@ -2106,6 +2111,7 @@ function oxy_shortcode_slideshow($atts , $content = '' ){
         $query_options = array(
             'post_type'   => 'oxy_slideshow_image',
             'orderby'     => 'menu_order',
+            'order'       => 'ASC',
             'suppress_filters' => 0,
             'posts_per_page' => -1
         );
