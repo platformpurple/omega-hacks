@@ -75,7 +75,7 @@
                     'captions_below'           => $item_captions_below,
                     'captions_below_link_type' => $captions_below_link_type,
                     'caption_title'            => get_the_title( $post->ID ),
-                    'caption_text'             => get_the_content(),
+                    'caption_text'             => get_the_excerpt(),
                     'caption_align'            => $item_caption_align,
                     'hover_filter'             => $item_hover_filter,
                     'hover_filter_invert'      => $hover_filter_invert,
