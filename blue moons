@@ -480,30 +480,19 @@ Lesson 20, Roy's final lesson, will cover various forms of bass guitar - 4, 5, 6
         <script>
              
              window.onload = function() {
-                 
-                $(".ui.fluid.card").velocity("transition.flipXIn", { stagger: 60 });
                 
-                 };
+                // initial page animation 
+                $(".ui.fluid.card").velocity("transition.flipBounceXIn", { stagger: 60 });
+                $(".theHeader").velocity("transition.slideUpBigIn");
+                
+                };
              
-             
-                //  $('.attached.button').click(function(){
-                //     $(".ui.fluid.card").velocity("transition.shrinkOut",
-                //     { stagger: 40 },
-                //     {complete: function() {
-                //         $(".lessons").hide;
-                //         console.log("hide");
-                //     }});
-                    
-                //     $(".chapters").velocity("transition.slideUpIn", {delay: 1500});
-                // });
-                
-                $('.attached.button').click(function(){
-                    $(".ui.fluid.card").velocity("transition.shrinkOut", { stagger: 40 }).promise().done(function() {
-                        $(".lessons").hide()
-                    });;
-                    $(".chapters").velocity("transition.slideUpIn", {delay: 1500});
-                });
-                
+              // when you click a chapters button in a lesson card 
+              $('.attached.button').click(function() {
+              $(".ui.fluid.card").velocity("transition.shrinkOut", { stagger: 40 });
+              $(".lessons").velocity({ opacity: 0 }, { display: "none" }); // disappears the lessons div
+              $(".chapters").velocity("transition.slideUpIn", {delay: 1500});
+              });
                 
                 $(".pointing div.item").click(function() {
                     var target = $( event.target );
