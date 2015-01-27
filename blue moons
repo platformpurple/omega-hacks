@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<!-- HTML5 Hello world by kirupa - http://www.kirupa.com/html5/getting_your_feet_wet_html5_pg1.htm -->
+<!-- paste this HTML here: https://github.com/platformpurple/omega-hacks/blob/master/blue%20moons -->
+
 <html lang="en-us">
 	<head>
 		<title>Bass Guitar</title>
@@ -489,23 +490,23 @@ Lesson 20, Roy's final lesson, will cover various forms of bass guitar - 4, 5, 6
              
               // when you click a chapters button in a lesson card 
               $('.attached.button').click(function() {
-              $(".ui.fluid.card").velocity("transition.shrinkOut", { stagger: 40 });
-              $(".lessons").velocity({ opacity: 0 }, { display: "none" }); // disappears the lessons div
-              $(".chapters").velocity("transition.slideUpIn", {delay: 1500});
+                $(".ui.fluid.card").velocity("transition.shrinkOut", { stagger: 40 });
+                $(".lessons").velocity({ opacity: 0 }, { display: "none" }); // disappears the lessons div
+                $(".chapters").velocity("transition.slideUpIn", {delay: 1500});
               });
                 
                 $(".pointing div.item").click(function() {
                     var target = $( event.target );
-                    console.log(target)
+                    console.log(target);
                    $(".item").removeClass("active");
                    target.addClass("active");
                 });
                 
+                // back to lessons menu
                 $('#back').click(function(){
-                    $(".chapters").velocity("transition.slideDownOut").promise().done(function() {
-                        $(".lessons").show()
-                    $(".ui.fluid.card").velocity("transition.flipXIn", { stagger: 60 });
-                    });
+                    $(".chapters").velocity("transition.slideDownOut");
+                    $(".lessons").velocity({ opacity: 1 }, { display: "block" });
+                    $(".ui.fluid.card").velocity("transition.flipBounceXIn", { stagger: 60 });
                 });
         </script>
     </body>
