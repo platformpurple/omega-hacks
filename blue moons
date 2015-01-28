@@ -428,7 +428,6 @@ Lesson 20, Roy's final lesson, will cover various forms of bass guitar - 4, 5, 6
     	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.7.3/semantic.min.js"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.min.js"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.ui.js"></script>
-        <script type="text/javascript" src="productData.js"></script>
         
         <script>
         
@@ -495,6 +494,65 @@ Lesson 20, Roy's final lesson, will cover various forms of bass guitar - 4, 5, 6
                     $(".ui.fluid.card").velocity("transition.flipBounceXIn", { stagger: 60 });
                 }});
                 }
+                
+                
+                
+                
+                 var lessonData = [{
+                "lesson": "1",
+                "lessonDescription": "Begin your journey leaning to play bass or brush up on your skills. In this lesson you'll learn your way around the bass, learn some basic exercises, as well as the chromatic scale and tips on how to navigate the neck.",
+                "chapters": [{
+                	"chapterName": "Getting Started",
+                	"chapterType": "header item"
+                	},{
+                	"chapterName": "Introduction",
+                	"chapterType": "item",
+                	"chapterMovieURL": "vault.blahblah.mp4",
+                	"loopPoints": [{
+                    	"title": "4x4 Exercise: 60 BPM",
+                    	"in": "00:17:47.00",
+                    	"out": "00:18:22.00"
+                    	},{
+                    	"title": "4x4 Exercise: 120 BPM",
+                    	"in": "00:19:48.00",
+                    	"out": "00:20:24.00"
+                    	},{
+                    	"title": "A String: 60 BPM",
+                    	"in": "00:24:18.00",
+                    	"out": "00:26:01.00"
+                   	 	},{
+                    	"title": "D String: 60 BPM",
+                    	"in": "00:26:45.00",
+                    	"out": "00:28:28.00"
+                    	},{
+                    	"title": "G String: 60 BPM",
+                    	"in": "00:28:57.00",
+                    	"out": "00:30:40.00"
+                    	},{
+                    	"title": "Notes Across the Neck",
+                    	"in": "00:34:01.00",
+                    	"out": "00:35:24.00"
+                    	}]
+                	},{
+                	"chapterName": "Tuning Up",
+                	"chapterType": "item",
+                	"chapterMovieURL": "vault.blahblah.mp4",
+                	"loopPoints": [{}]
+                	},{
+                	"chapterName": "Ready to Rock",
+                	"chapterType": "header item",
+                	},{
+                	"chapterName": "Smoke on the Water",
+                	"chapterType": "item",
+                	"chapterMovieURL": "vault.blahblah.mp4",
+                	"loopPoints": [{}]
+                	},{
+                	"chapterName": "Stairway to Heaven",
+                	"chapterType": "item",
+                	"chapterMovieURL": "vault.blahblah.mp4",
+                	"loopPoints": [{}]
+                }]}];
+                
                 
                 
         </script>
