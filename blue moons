@@ -12,11 +12,12 @@
     }
     
     body {
-        background: url('http://soumya.ca/wp-content/uploads/2011/07/Bass_guitar-hd-1.jpg');
+        background: url('https://platformpurple.com/wp-content/uploads/2015/01/Bass_guitar-hd-1.jpg');
         background-size:cover;
         color: white;
         background-repeat:no-repeat;
         background-attachment:fixed;
+        height: 1600px;
         }
         
     .lessons {
@@ -45,7 +46,7 @@
         }
     
     .ui .card {
-        background: rgba(255, 255, 255, 0.7);
+        background: rgba(255, 255, 255, 0.8);
         box-shadow: none;
         display: none;
         }
@@ -87,9 +88,9 @@
                         Begin your journey leaning to play bass or brush up on your skills. In this lesson you'll learn your way around the bass, learn some basic exercises, as well as the chromatic scale and tips on how to navigate the neck.
                       </div>
                     </div>
-                    <div class="ui bottom attached button">
+                    <div class="ui bottom attached button" id="1">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -101,9 +102,9 @@
                       <div class="description">
 Lesson 2 teaches notes in the first position, note and signature values, the 12-bar blues form, and two of Roy's original songs which you'll play with the TMBG Band.                      </div>
                     </div>
-                    <div class="ui bottom attached button">
+                    <div class="ui bottom attached button" id="2">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -115,9 +116,9 @@ Lesson 2 teaches notes in the first position, note and signature values, the 12-
                       <div class="description">
 All about eighth notes, picks (plectrums), and syncopation. Then you get test your new skills with the TMBG Band of Nashville studio musicians on a hard rocker, and a groovy '60s tune.                      </div>
                     </div>
-                    <div class="ui bottom attached button">
+                    <div class="ui bottom attached button" id="3">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -129,9 +130,9 @@ All about eighth notes, picks (plectrums), and syncopation. Then you get test yo
                       <div class="description">
 In Lesson 4, you'll learn major and minor scales, moveable shapes, the notes on frets 5-8, and Roy's original songs "Mid-Neck Blues" and "Bach to Bass-ics", which you'll be able to play with the amazing TMBG Band.                      </div>
                     </div>
-                    <div class="ui bottom attached button">
+                    <div class="ui bottom attached button" id="4">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -146,9 +147,9 @@ In Lesson 4, you'll learn major and minor scales, moveable shapes, the notes on 
                       <div class="description">
 In this Lesson, Roy teaches you 8th note syncopation, 3-key patterns, the foot-tap system, funk and R&B concepts, how to play with a drummer and two new band tunes, On the Good Foot, and California Pop Groove.                      </div>
                     </div>
-                    <div class="ui bottom attached button">
+                    <div class="ui bottom attached button" id="5">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -160,9 +161,9 @@ In this Lesson, Roy teaches you 8th note syncopation, 3-key patterns, the foot-t
                       <div class="description">
 In Lesson 6, you'll learn the fundamental principles of music, as well as swing, shuffle, and jazz for beginners. Then you'll learn new songs specially written to illustrate these concepts: "Don't Be-Bop" and "Shufflin' Along" to play with the dynamite TMBG Band!                      </div>
                     </div>
-                    <div class="ui bottom attached button">
+                    <div class="ui bottom attached button" id="6">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -176,7 +177,7 @@ By the end of this lesson, you'll know all the notes on the fretboard by name, a
                     </div>
                     <div class="ui bottom attached button">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -190,7 +191,7 @@ Covering tying the neck together, frets 1-12, double-stop chords, and chromatic 
                     </div>
                     <div class="ui bottom attached button">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -207,7 +208,7 @@ In Lesson 9, you'll learn the rudiments of slap bass and drums-on-bass technique
                     </div>
                     <div class="ui bottom attached button">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -217,11 +218,11 @@ In Lesson 9, you'll learn the rudiments of slap bass and drums-on-bass technique
                     <div class="content">
                       <div class="header">Lesson 10</div>
                       <div class="description">
-Learn notes from the 17th to 24th frets, as well as some choice solo techniques!                      </div>
+Learn notes from the 17th to 24th frets, as well as some choice solo techniques!</div>
                     </div>
                     <div class="ui bottom attached button">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -235,7 +236,7 @@ In Lesson 11, you'll learn the notes in the 17th - 20th frets. You'll also learn
                     </div>
                     <div class="ui bottom attached button">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -249,7 +250,7 @@ In Lesson 12, you'll learn chromatic approach tones in walking bass lines, diato
                     </div>
                     <div class="ui bottom attached button">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -266,7 +267,7 @@ Lesson 13 teaches how to unlock melodies in modes and use modes to create bass l
                     </div>
                     <div class="ui bottom attached button">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -280,7 +281,7 @@ Lesson 14 is one that'll put hair on your musical chest: major and minor pentato
                     </div>
                     <div class="ui bottom attached button">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -294,7 +295,7 @@ In Lesson 15, you'll learn the 2-handed technique for tapping chords and bass li
                     </div>
                     <div class="ui bottom attached button">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -308,7 +309,7 @@ Lesson 16 gives you the Working Pros Toolkit: Part 1. Play like the pros: Sight-
                     </div>
                     <div class="ui bottom attached button">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -325,7 +326,7 @@ In Lesson 17, you'll learn the secrets of the Working Pros Toolkit: Part 2. Lear
                     </div>
                     <div class="ui bottom attached button">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -339,7 +340,7 @@ In Lesson 18, Roy reveals Working Pros Toolkit: Part 3: World Music: The fundame
                     </div>
                     <div class="ui bottom attached button">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -353,7 +354,7 @@ The Working Pro's Toolkit, Part 4: Studio work: playing with a click track, gett
                     </div>
                     <div class="ui bottom attached button">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -367,7 +368,7 @@ Lesson 20, Roy's final lesson, will cover various forms of bass guitar - 4, 5, 6
                     </div>
                     <div class="ui bottom attached button">
                       <i class="arrow right icon"></i>
-                      Chapters
+                      GO
                     </div>
                   </div>
                 </div>
@@ -377,64 +378,8 @@ Lesson 20, Roy's final lesson, will cover various forms of bass guitar - 4, 5, 6
 
         <div class="chapters" style="display: none;">
             <div class="ui grid segment">
-                    <div class="ui four wide column vertical pointing menu" style="background: rgba(255, 255, 255, 0.85);">
-                        <a id="back" class="labeled icon header item">
-                            <i class="arrow left icon" style="float:left"></i>  Back</a>
-                        </a>
-                        <div class="header item">
-                            <h2>Chapters</h2>
-                        </div>
-                        <div class="active item">
-                         Course Introduction
-                        </div>
-                        <div class="item">
-                         Introduction   
-                        </div>
-                        <div class="item">
-                         Warm Up   
-                        </div>
-                        <div class="header item">
-                         Concepts & Applications
-                        </div>
-                            <div class="item">
-                             Tuning Your Bass   
-                            </div>
-                            <div class="item">
-                             Parts of the Bass   
-                            </div>
-                            <div class="item">
-                             Picking Styles   
-                            </div>
-                            <div class="item">
-                             Fretting Hand   
-                            </div>
-                            <div class="item">
-                             A Bit About Metronomes   
-                            </div>
-                            <div class="item">
-                             4x4 Exercise   
-                            </div>
-                            <div class="item">
-                             Musical Alphabet  
-                            </div>
-                            <div class="item">
-                             Sharps & Flats  
-                            </div>
-                            <div class="item">
-                             Tricks of the Trade   
-                            </div>
-                            <div class="item">
-                             Positions on the Neck  
-                            </div>
-                            <div class="item">
-                             Notes Across the Neck 
-                            </div>
-                        <div class="item">
-                         Cool Down   
-                        </div>
-                        <div class="item">
-                         Conclusion   
-                        </div>
+                    <div class="ui four wide column vertical pointing menu" id="replaceMenu" style="background: rgba(255, 255, 255, 0.85);">
+
                     </div>
                     <div class="ui twelve wide column chapterContent">
                         <h2>Content</h2>
@@ -479,20 +424,86 @@ Lesson 20, Roy's final lesson, will cover various forms of bass guitar - 4, 5, 6
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.ui.js"></script>
         
         <script>
-             
+        
+             var lessonData = [{
+                "lesson": "1",
+                "lessonDescription": "Begin your journey leaning to play bass or brush up on your skills. In this lesson you'll learn your way around the bass, learn some basic exercises, as well as the chromatic scale and tips on how to navigate the neck.",
+                "chapters": [{
+                	"chapterName": "Getting Started",
+                	"chapterType": "header item"
+                	},{
+                	"chapterName": "Introduction",
+                	"chapterType": "item",
+                	"chapterMovieURL": "vault.blahblah.mp4",
+                	"loopPoints": [{
+                    	"title": "4x4 Exercise: 60 BPM",
+                    	"in": "00:17:47.00",
+                    	"out": "00:18:22.00"
+                    	},{
+                    	"title": "4x4 Exercise: 120 BPM",
+                    	"in": "00:19:48.00",
+                    	"out": "00:20:24.00"
+                    	},{
+                    	"title": "A String: 60 BPM",
+                    	"in": "00:24:18.00",
+                    	"out": "00:26:01.00"
+                   	 	},{
+                    	"title": "D String: 60 BPM",
+                    	"in": "00:26:45.00",
+                    	"out": "00:28:28.00"
+                    	},{
+                    	"title": "G String: 60 BPM",
+                    	"in": "00:28:57.00",
+                    	"out": "00:30:40.00"
+                    	},{
+                    	"title": "Notes Across the Neck",
+                    	"in": "00:34:01.00",
+                    	"out": "00:35:24.00"
+                    	}]
+                	},{
+                	"chapterName": "Getting Started",
+                	"chapterType": "item",
+                	"chapterMovieURL": "vault.blahblah.mp4",
+                	"loopPoints": [{}]
+                }]}];
+                
              window.onload = function() {
                 
                 // initial page animation 
-                $(".ui.fluid.card").velocity("transition.flipBounceXIn", { stagger: 60 });
+                $(".ui.fluid.card").velocity("transition.flipBounceXIn", { stagger: 100 });
                 $(".theHeader").velocity("transition.slideUpBigIn");
                 
                 };
              
               // when you click a chapters button in a lesson card 
               $('.attached.button').click(function() {
+                // first, save which lesson:
+                
+                var currentLessonIndex = this.id - 1;
+                
+                // localStorage.setItem("currentLesson", this.id);
+                
+                // var currentLesson = (localStorage.getItem("currentLesson")) - 1 ;
+                
+                console.log(currentLessonIndex);
+                
+                // // then grab the correct chapter names
+                var lengthOfChapters = lessonData[currentLessonIndex].chapters.length;
+                console.log(lengthOfChapters);
+                var currentChapterList = ''; 
+                  for (i = 0; i < lengthOfChapters; i++) {
+                    currentChapterList += '<div class="' + lessonData[currentLessonIndex].chapters[i].chapterType + '">' + lessonData[currentLessonIndex].chapters[i].chapterName + '</div>';
+                    };
+                console.log(currentChapterList);
+                
+                //and write them to the page
+                document.getElementById("replaceMenu").innerHTML = '<div id="back" class="labeled icon header item"><i class="arrow left icon" style="float:left"></i>  Back</div><div class="header item"><h2>Chapters</h2></div>' + currentChapterList;
+                
+
+                // // then do the transition to the lesson:
                 $(".ui.fluid.card").velocity("transition.shrinkOut", { stagger: 40 });
                 $(".lessons").velocity({ opacity: 0 }, { display: "none" }); // disappears the lessons div
-                $(".chapters").velocity("transition.slideUpIn", {delay: 1500});
+                $(".chapters").velocity("transition.slideUpIn");
               });
                 
                 $(".pointing div.item").click(function() {
@@ -504,10 +515,17 @@ Lesson 20, Roy's final lesson, will cover various forms of bass guitar - 4, 5, 6
                 
                 // back to lessons menu
                 $('#back').click(function(){
-                    $(".chapters").velocity("transition.slideDownOut");
+                  console.log("HEYLO")
+                    $(".chapters").velocity("transition.slideDownOut", {complete: function() { 
                     $(".lessons").velocity({ opacity: 1 }, { display: "block" });
                     $(".ui.fluid.card").velocity("transition.flipBounceXIn", { stagger: 60 });
+                }});
                 });
+                
+                
+                
+                
+                
         </script>
     </body>
 
