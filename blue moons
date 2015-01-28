@@ -378,10 +378,13 @@ Lesson 20, Roy's final lesson, will cover various forms of bass guitar - 4, 5, 6
 
         <div class="chapters" style="display: none;">
             <div class="ui grid segment">
-                    <div class="ui four wide column vertical pointing menu" id="replaceMenu" style="background: rgba(255, 255, 255, 0.85);">
+                    <div class="ui four wide column vertical pointing menu" style="background: rgba(255, 255, 255, 0.85);">
                       
-                      <div id="back" class="labeled icon header item">'
-                        <i class="arrow left icon" style="float:left"></i>Back</div>
+                      <div id="back" class="labeled icon header item" onclick="backToMenu()">
+                        <i class="arrow left icon" style="float:left"></i>Back
+                      </div>
+                      
+                      <div id="chapterList"></div>
                       </div>
                     
                     <div class="ui twelve wide column chapterContent">
@@ -468,6 +471,19 @@ Lesson 20, Roy's final lesson, will cover various forms of bass guitar - 4, 5, 6
                 	"chapterType": "item",
                 	"chapterMovieURL": "vault.blahblah.mp4",
                 	"loopPoints": [{}]
+                	},{
+                	"chapterName": "Ready to Rock",
+                	"chapterType": "header item",
+                	},{
+                	"chapterName": "Smoke on the Water",
+                	"chapterType": "item",
+                	"chapterMovieURL": "vault.blahblah.mp4",
+                	"loopPoints": [{}]
+                	},{
+                	"chapterName": "Stairway to Heaven",
+                	"chapterType": "item",
+                	"chapterMovieURL": "vault.blahblah.mp4",
+                	"loopPoints": [{}]
                 }]}];
                 
              window.onload = function() {
@@ -488,63 +504,49 @@ Lesson 20, Roy's final lesson, will cover various forms of bass guitar - 4, 5, 6
                 
                 // localStorage.setItem("currentLesson", this.id);
                 
-                // var currentLesson = (localStorage.getItem("currentLesson")) - 1 ;
+                // console.log("currentLessonIndex = " + currentLessonIndex);
                 
-                console.log("currentLessonIndex = " + currentLessonIndex);
+                // then put the chapter names from JSON into the chapter menu
                 
-                // // then grab the correct chapter names
-                // var lengthOfChapters = lessonData[currentLessonIndex].chapters.length;
-                // console.log(lengthOfChapters);
-                
-                // var currentChapterList = ''; 
-                //   for (i = 0; i < lengthOfChapters; i++) {
-                //     currentChapterList += '<div class="' + lessonData[currentLessonIndex].chapters[i].chapterType + '">' + lessonData[currentLessonIndex].chapters[i].chapterName + '</div>';
-                //     };
-                // console.log(currentChapterList);
-                
-                  var currentChapterList, chapterCSSclass, chapterName;
+              var currentChapterList, chapterCSSclass, chapterName;
 
               for (var i in lessonData[0].chapters) {
-                
+
                 chapterCSSclass = lessonData[currentLessonIndex].chapters[i].chapterType;
                 chapterName = lessonData[currentLessonIndex].chapters[i].chapterName;
   
                 currentChapterList +=
                 '<div class="' + chapterCSSclass + '">'
-                + chapterName
-                + '</div>';
+                + chapterName + '</div>';
   
               }
 
 
                 //and write them to the page
-                document.getElementById("replaceMenu").innerHTML += currentChapterList;
+                document.getElementById("chapterList").innerHTML = currentChapterList;
                 
 
-                // // then do the transition to the lesson:
+                // then do the transition to the lesson:
                 $(".ui.fluid.card").velocity("transition.shrinkOut", { stagger: 40 });
                 $(".lessons").velocity({ opacity: 0 }, { display: "none" }); // disappears the lessons div
                 $(".chapters").velocity("transition.slideUpIn");
               });
+              
                 
-                $(".pointing div.item").click(function() {
+                $(".ui.vertical.menu .item").click(function() {
                     var target = $( event.target );
                     console.log(target);
                    $(".item").removeClass("active");
                    target.addClass("active");
                 });
                 
-                // back to lessons menu
-                $('#back').click(function(){
-                  console.log("HEYLO");
+                // back to main lessons menu
+                function backToMenu() {
                     $(".chapters").velocity("transition.slideDownOut", {complete: function() { 
                     $(".lessons").velocity({ opacity: 1 }, { display: "block" });
                     $(".ui.fluid.card").velocity("transition.flipBounceXIn", { stagger: 60 });
                 }});
-                });
-                
-                
-                
+                }
                 
                 
         </script>
