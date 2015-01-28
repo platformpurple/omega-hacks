@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kleurplaten</title>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.2.0/semantic.min.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="animate.css" type="text/css" />
+    <link href='//fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.2.0/semantic.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css"></script>
+
+</head>
+
+<body>
+
+    <div ng-app="gifts" ng-controller="MainCtrl" id="browse">
+
+
+        <div class="ui grid animated flipInX">
+
+            <div class="ui doubling five column row" id="filters">
+                <div class="column" id="catButton">
+                    <div class="ui centered image">
+                        <img data-filter="*" src="http://wanagogo.com/wp-content/uploads/char_scroll.png">
+                        <h3 class="character-name">Show all</h3>
+                    </div>
+                </div>
+                <div class="column" id="catButton">
+                    <div class="ui centered image">
+                        <img data-filter=".wickie" src="http://wanagogo.com/wp-content/uploads/Vik_frame.png">
+                        <h3 class="character-name">Wickie</h3>
+                    </div>
+                </div>
+
+                <div class="column" id="catButton">
+                    <div class="ui centered image">
+                        <img data-filter=".k3" src="http://wanagogo.com/wp-content/uploads/K3_frame.png">
+                        <h3 class="character-name">K3</h3>
+                    </div>
+                </div>
+                <div class="column" id="catButton">
+                    <div class="ui centered image">
+                        <img data-filter=".samson" src="http://wanagogo.com/wp-content/uploads/SamsonGert_frame.png">
+                        <h3 class="character-name">Samson en Gert</h3>
+                    </div>
+                </div>
+                <div class="column" id="catButton">
+                    <div class="ui centered image">
+                        <img data-filter=".plop" src="http://wanagogo.com/wp-content/uploads/KabouterPlop_frame.png">
+                        <h3 class="character-name">Plop de Kabouter</h3>
+                    </div>
+                </div>
+                <div class="column" id="catButton">
+                    <div class="ui centered image">
+                        <img data-filter=".bumba" src="http://wanagogo.com/wp-content/uploads/Bumba_frame.png">
+                        <h3 class="character-name">Bumba</h3>
+                    </div>
+                </div>
+                <div class="column" id="catButton">
+                    <div class="ui centered image">
+                        <img data-filter=".maya" src="http://wanagogo.com/wp-content/uploads/Maya_frame1.png">
+                        <h3 class="character-name">Maya de Bij</h3>
+                    </div>
+                </div>
+                <div class="column" id="catButton">
+                    <div class="ui centered image">
+                        <img data-filter=".piet" src="http://wanagogo.com/wp-content/uploads/PietPiraat_frame.png">
+                        <h3 class="character-name">Piet Piraat</h3>
+                    </div>
+                </div>
+                <div class="column" id="catButton">
+                    <div class="ui centered image">
+                        <img data-filter=".mindy" src="http://wanagogo.com/wp-content/uploads/MegaMindy_frame.png">
+                        <h3 class="character-name">Mega Mindy</h3>
+                    </div>
+                </div>
+                <div class="column" id="catButton">
+                    <div class="ui centered image">
+                        <img data-filter=".willy" src="http://wanagogo.com/wp-content/uploads/Willy_frame1.png">
+                        <h3 class="character-name">Mega Mindy</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="isotope animated bounceInUp" style="height:1600px;">
+            <div ng-repeat="product in products | filter:search" class="element-item {{product.category}}">
+
+                <div class="productInfo">
+                    <h3 class="productName" style="text-align:center;">{{product.productName}}</h3>
+                    <img class="productImage" height="auto" width="120px" src="https://f3r6v6t8.ssl.hwcdn.net/static/previews/{{product.productSKU}}/{{product.productSKU}}_image_cover.png"></img>
+                    <div class="price">
+                        <h4>${{product.productPrice}}</h4>
+                    </div>
+                    <div class="productBlurb">{{product.productBlurb}}</div>
+                </div>
+
+                <div class="3 fluid ui buttons buttonBlock">
+                    <div class="ui blue button productButton.info" id={{product.productID}} onclick=moreInfo(this.id)><i class="info icon"></i>More info</div>
+                    <div class="ui yellow button productButton.gift"><i class="gift icon"></i>Give gift</div>
+                    <div class="ui green button productButton.cart"><i class="cart icon"></i>Add to cart</div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="ui standard test modal" id="modalPopupGiveGift" style="margin-top: -321px;">
+            <div class="header">
+                <i class="close  red remove sign outline icon label modalCloseRight"></i> Give eco-friendly digital gift
+            </div>
+            <div class="content">
+                <div class="ui three column grid">
+                    <div class="ui grid">
+                        <div class="ui eight wide column setMargin">
+                            <div class="item">
+                                Type the name of the lucky recipient below. We'll remember this for you while you continue shopping.
+                            </div>
+                            <br>
+
+                            <div class="item">
+                                Who would you like to give this to?
+                            </div>
+                            <br>
+
+                            <div class="ui input fluid">
+                                <input type="text" placeholder="Recipient Name" id="giftTo">
+                            </div>
+                            <br>
+                            <br>
+
+                            <div class="item">
+                                After you complete your purchase, you'll be able to print out and wrap the gift yourself.
+                            </div>
+                            <br>
+
+                            <div class="item">
+                                Or, you'll be able to have us deliver this lovely, festive email to the recipient, either immediately, or on a future date you specify. For help or more information,
+                                <a href="http://help.platformpurple.com/category/gifts/" target="help">click here</a>.
+                            </div>
+                            <br>
+                        </div>
+                        <div class="ui center aligned eight wide column">
+                            <span class="item">
+                          <img src="http://static.platformpurple.com/images/giftExample.jpg" style="width: 100%;">
+                      </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+                <div class="ui two column grid">
+                    <div class="row item">
+                        <div class="ui center aligned column">
+                            <div class="ui primary button" style="width:50%;padding: 0 3em;">
+                                Cancel
+                            </div>
+                        </div>
+                        <div class="ui center aligned column">
+                            <div class="ui secondary button" onclick="giveGift(document.getElementById('giftTo').value)" style="width:50%;padding: 0 3em;">
+                                Continue
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript">
+        function moreInfo(productID) {
+            var w = window.open("https://shop.platformpurple.com/product/?shop=3167&product=" + productID, "1330995918322", "width=1000,height=820,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1");
+            w.focus();
+            return false;
+        }
+
+        // ----- getText helper ----- //
+
+        var textProp = document.documentElement.textContent !== undefined ? 'textContent' : 'innerText';
+
+        function getText(elem) {
+            return elem[textProp];
+        }
+
+        // -----  ----- //
+
+        docReady(function () {
+            // init Isotope
+            var iso = new Isotope('.isotope', {
+                itemSelector: '.element-item',
+                layoutMode: 'masonry'
+            });
+
+            // filter functions
+
+
+            // bind filter button click
+            var filtersElem = document.querySelector('#filters');
+            eventie.bind(filtersElem, 'click', function (event) {
+                // only work with buttons
+                if (!matchesSelector(event.target, 'img')) {
+                    return;
+                }
+                var filterValue = event.target.getAttribute('data-filter');
+                // use matching filter function
+                iso.arrange({
+                    filter: filterValue
+                });
+            });
+
+            // change is-checked class on buttons
+            var buttonGroups = document.querySelectorAll('.button-group');
+            for (var i = 0, len = buttonGroups.length; i < len; i++) {
+                var buttonGroup = buttonGroups[i];
+                radioButtonGroup(buttonGroup);
+            }
+
+        });
+
+
+        var gifts = angular.module('gifts', []);
+
+        gifts.controller('MainCtrl', function ($scope) {
+            $scope.products = [
+                {
+                    "productID": "37342",
+                    "productName": "Cinematic Cookbook Vol. 1",
+                    "category": "k3",
+                    "productSKU": "dvc_cookbookvol1",
+                    "productBlurb": "What if you kidnapped an award-winning Hollywood cinematographer and made him teach you all his secrets? We did. And we filmed it.",
+                    "publisherName": "DVcreators.net",
+                    "byLine": "Instructor: Brad Rushing Publisher: DVcreators",
+                    "searchString": "Cinematic Cookbook Vol. 1 dvc_cookbookvol1 Instructor: Brad Rushing Publisher: DVcreators visual arts DVcreators.net Video Production Mobile Friendly Cinematography",
+                    "productPrice": "99.00"
+     },
+                {
+                    "productID": "37177",
+                    "productName": "The Ultimate Workouts For Weight Loss 4-DVD Collection",
+                    "category": "bumba",
+                    "productSKU": "inwell_ultimate4pack-syf-js",
+                    "productBlurb": "Buy as a bundle and save big $$$! The best workout plan for weight loss includes a wide variety of different styles and intensity to maximize your results and help beat boredom.",
+                    "publisherName": "In Wellness Systems",
+                    "byLine": "<p>Instructor: Jessica Smith Publisher: [InWellness Systems]<\/p>",
+                    "searchString": "The Ultimate Workouts For Weight Loss 4-DVD Collection inwell_ultimate4pack-syf-js Instructor: Jessica Smith Publisher: [InWellness Systems] In Wellness Systems LLC health & fitness Jessica Smith",
+                    "productPrice": "48.00"
+     },
+                {
+                    "productID": "36623",
+                    "productName": "Learn to Play Fingerstyle Guitar Favorites",
+                    "category": "k3",
+                    "productSKU": "ar_fingerstylefavorites_1",
+                    "productBlurb": "Your friends and family will love listening to you play these \"Fingerstyle Favorites\" for solo guitar. Learn \"The Hippie Dance\", \"Rolling With the Ashes\",  \"Harlem\"  and \"Jill's Song.\" FREE bonus tab included. ",
+                    "publisherName": "Adam Rafferty",
+                    "byLine": "<p>Instructor: Adam Rafferty Publisher: Crescent Ridge Publishing<\/p>",
+                    "searchString": "Learn to Play Fingerstyle Guitar Favorites ar_fingerstylefavorites_1 Instructor: Adam Rafferty Publisher: Crescent Ridge Publishing Mobile Friendly Intermediate Adam Rafferty Acoustic Guitar Adam Rafferty music",
+                    "productPrice": "29.95"
+     },
+                {
+                    "productID": "36275",
+                    "productName": "Happy Traums Ultimate Acoustic Blues Guitar",
+                    "category": "k3",
+                    "productSKU": "hs_ultimatebluesbund",
+                    "productBlurb": "Includes 6 Blues Guitar videos!",
+                    "publisherName": "Homespun Tapes",
+                    "byLine": "<p>Instructor: Happy Traum Publisher: Homespun Tapes<\/p>",
+                    "searchString": "Happy Traums Ultimate Acoustic Blues Guitar hs_ultimatebluesbund Instructor: Happy Traum Publisher: Homespun Tapes Acoustic Guitar music Homespun Blues Bundles Instructional Video",
+                    "productPrice": "99.95"
+     },
+                {
+                    "productID": "16105",
+                    "productName": "SDS SAT Prep Module 1: Introduction to the SAT & Sentence Completion",
+                    "category": "bumba",
+                    "productSKU": "cereb_satprep1",
+                    "productBlurb": "With our winning formula for success, there's no reason why your students need to sweat the New SAT. Use the PROVE technique increases the odds of guessing correct answers and boosts scores.",
+                    "publisherName": "Standard Deviants",
+                    "byLine": " Publisher: Cerebellum Corporation",
+                    "searchString": "SDS SAT Prep Module 1: Introduction to the SAT & Sentence Completion cereb_satprep1 Publisher: Cerebellum Corporation Standard Deviants SAT Test Prep kids & family",
+                    "productPrice": "10.00"
+     },
+                {
+                    "productID": "332",
+                    "productName": "Love to Paint with Mimi: Full Series",
+                    "category": "bumba",
+                    "productSKU": "ms_lovetopaint14",
+                    "productBlurb": " PBS presents Mimi Sammis in a high-def series that helps viewers explore their own creativity. Mimi covers tools, techniques & tricks of the trade & inspires viewers to paint like no one is watching! ",
+                    "publisherName": "Mimi Sammis",
+                    "byLine": "<span class=\"tagLite\">  Taught by:  </span><span class=\"tagLite\">Mimi Sammis</span>",
+                    "searchString": "Love to Paint with Mimi: Full Series ms_lovetopaint14   Taught by:  Mimi Sammis Painting visual arts Mimi Sammis Instructional",
+                    "productPrice": "54.95",
+
+        },
+                {
+                    "productID": "1415",
+                    "productName": "Every Picture Tells A Story",
+                    "category": "bumba",
+                    "productSKU": "mpw_everypicture",
+                    "productBlurb": " Experience a private photography workshop through the breathtaking scenery of northern Arizona with renowned landscape photographer and workshop leader Steve Kossack.  Beginner - Intermediate Amateur ",
+                    "publisherName": "Master Photo Workshop",
+                    "byLine": "<span class=\"tagDark\">  Taught by:  </span><span class=\"tagLite\">Steve Kossack</span>   •   <span class=\"tagDark\">Publisher:  </span><span class=\"tagLite\">Master Photo Workshop</span>",
+                    "searchString": "Every Picture Tells A Story mpw_everypicture   Taught by:  Steve Kossack      Publisher:  Master Photo Workshop MasterPhoto Workshop visual arts Steve Kossack Photography Instructional Landscape Photography Mobile Friendly",
+                    "productPrice": "29.99",
+
+        },
+                {
+                    "productID": "1522",
+                    "productName": "Fight Like a Girl: Transforming Cardio Kickboxing Into Self-Defense",
+                    "category": "bumba",
+                    "productSKU": "pp_fightlikeagirl",
+                    "productBlurb": " Martial artist and kickboxing expert Addy Hernandez teaches you how to transform ordinary cardio kickboxing movements into a practical, highly effective personal defense system. Duration: 105 minutes. ",
+                    "publisherName": "Paladin Press",
+                    "byLine": " Author:  Addy Hernandez • Publisher: Paladin Press ",
+                    "searchString": "Fight Like a Girl: Transforming Cardio Kickboxing Into Self-Defense pp_fightlikeagirl Author:  Addy Hernandez  Publisher: Paladin Press martial arts/self-defense Addy Hernandez Street Survival Self-Defense Paladin Press Women's Self-Defense Mobile Friendly",
+                    "productPrice": "15.96",
+
+        },
+                {
+                    "productID": "2584",
+                    "productName": "Baby Signing Time Complete Collection",
+                    "category": "kids parents",
+                    "productSKU": "st_bstcomplete",
+                    "productBlurb": " Babies can communicate long before they can talk. Signing reduces frustration and builds early language skills. This collection introduces your baby's first 100 words in signs, songs and stories.",
+                    "publisherName": "Signing Time",
+                    "byLine": "   Host:  Rachel Coleman   •   Producer:  Two Little Hands  ",
+                    "searchString": "Baby Signing Time Complete Collection st_bstcomplete   Host:  Rachel Coleman   •   Producer:  Two Little Hands  Toddler Infant Bundles Baby Signing Time kids & family Two Little Hands Music Individual sale",
+                    "productPrice": "59.99",
+
+        },
+                {
+                    "productID": "3526",
+                    "productName": "Laugh & Learn",
+                    "category": "kids parents",
+                    "productSKU": "tbc_laughandlearn",
+                    "productBlurb": " Laugh & Learn will teach children skills like problem solving, listening skills, and concept awareness. This video stimulates learning through \"Things that Go,\" Matching Games, Music, and more!  age: 2-4 Years   •   duration: 45 Mins   •   size:1 GB ",
+                    "publisherName": "Brainy Baby",
+                    "byLine": " Publisher: The Brainy Company ",
+                    "searchString": "Laugh & Learn tbc_laughandlearn Publisher: The Brainy Company kids & family The Brainy Company Child Development Mobile Friendly",
+                    "productPrice": "12.99",
+
+        },
+                {
+                    "productID": "3995",
+                    "productName": "Energy Flow Vinyasa Yoga",
+                    "category": "friends inshape",
+                    "productSKU": "truemind_vinyassayoga",
+                    "productBlurb": " Yoga is one of the most effective ways to reduce stress, sculpt and strengthen the body, enhance flexibility and cultivate peace of mind. This classically designed, flowing practice is an excellent introduction for the beginner. ",
+                    "publisherName": "True Mind Media",
+                    "byLine": " Instructor: Jennifer Kries   Publisher: True Mind Media ",
+                    "searchString": "Energy Flow Vinyasa Yoga truemind_vinyassayoga Instructor: Jennifer Kries   Publisher: True Mind Media Yoga True Mind Media health & fitness Beginner Mobile Friendly",
+                    "productPrice": "14.99",
+
+        },
+                {
+                    "productID": "4163",
+                    "productName": "Stilettos and Self Defense 3 Volume set",
+                    "category": "selfdefense friends",
+                    "productSKU": "jencass_completebundle",
+                    "productBlurb": " Get all three Stilettos and Self Defense DVDs in one bundle! ",
+                    "publisherName": "Jennifer Cassetta",
+                    "byLine": " Instructor: Jennifer Cassetta   Publisher: Stilettos and Self Defense ",
+                    "searchString": "Stilettos and Self Defense 3 Volume set jencass_completebundle Instructor: Jennifer Cassetta   Publisher: Stilettos and Self Defense Jennifer Cassetta Self-Defense martial arts/self-defense Jennifer Cassetta Women's Self-Defense",
+                    "productPrice": "45.95",
+
+        },
+                {
+                    "productID": "4779",
+                    "productName": "The Drummers of Frank Zappa",
+                    "category": "musicians friends",
+                    "productSKU": "drumc_zappadrums",
+                    "productBlurb": " This DVD features performances and interviews with some of the best drummers to work with Frank Zappa: Terry Bozzio, Chester Thompson, Chad Wackerman, Ruth Underwood, and Ralph Humphrey.    140 minutes ",
+                    "publisherName": "Drum Channel",
+                    "byLine": " Artist: Various   •   Publisher:  Drum Channel ",
+                    "searchString": "The Drummers of Frank Zappa drumc_zappadrums Artist: Various      Publisher:  Drum Channel Performance-Documentary Drums Various music Drum Channel Mobile Friendly",
+                    "productPrice": "9.95",
+
+        },
+                {
+                    "productID": "5024",
+                    "productName": "Burn at the Barre Advanced Workout",
+                    "category": "inshape friends",
+                    "productSKU": "psc_barreadv",
+                    "productBlurb": " Pilates Sports Center challenges you once again with the \"Burn at the Barre Advanced Workout.\" For lovers of Barre workouts this particular creation promises to challenge you in new, innovative ways.   ",
+                    "publisherName": "Pilates Sports Center",
+                    "byLine": " Instructor: Helena Hultberg-Talman   Publisher: Pilates Sports Center ",
+                    "searchString": "Burn at the Barre Advanced Workout psc_barreadv Instructor: Helena Hultberg-Talman   Publisher: Pilates Sports Center Fitness Fitness Pilates Advanced health & fitness Pilates Sports Center Helena Hultberg-Talman Barre Mobile Friendly",
+                    "productPrice": "19.95",
+
+        },
+                {
+                    "productID": "5347",
+                    "productName": "Discover Tai Chi For Balance and Mobility - Exercise for Seniors & Older Adults ",
+                    "category": "parents friends inshape",
+                    "productSKU": "scco_tcbalandmob",
+                    "productBlurb": " Discover improved balance, strength, flexibility, and mobility AT ANY AGE with gentle therapeutic standing and seated Tai Chi-inspired exercises and stretches from America's premier Tai Chi and fitness expert, Scott Cole. ",
+                    "publisherName": "Scott Cole",
+                    "byLine": " Instructor: Scott Cole   Publisher: Scott Cole ",
+                    "searchString": "Discover Tai Chi For Balance and Mobility - Exercise for Seniors & Older Adults  scco_tcbalandmob Instructor: Scott Cole   Publisher: Scott Cole Fitness Exercise Fitness Scott Cole health & fitness Scott Cole Senior Fitness Balance Tai Chi Mobile Friendly",
+                    "productPrice": "14.95",
+
+        },
+                {
+                    "productID": "7845",
+                    "productName": "Total Training(TM) for Adobe(R) Photoshop(R) CS6 Extended: Essentials",
+                    "category": "tech",
+                    "productSKU": "tt_TPSC6ES",
+                    "productBlurb": " This series will help you get started using the world's leading image editing software. Adobe Education Leader Debbie Keller will provide you with an overview of the interface, the tools, panels and options you'll need.",
+                    "publisherName": "Total Training",
+                    "byLine": " Author: Debbie Keller • Publisher: Total Training ",
+                    "searchString": "Total Training(TM) for Adobe(R) Photoshop(R) CS6 Extended: Essentials tt_TPSC6ES Author: Debbie Keller  Publisher: Total Training Intermediate Beginner Photography Graphic Design Print Design & Publishing Total Training Mobile Friendly visual arts Adobe Debbie Keller Adobe Photoshop",
+                    "productPrice": "49.99",
+
+        },
+                {
+                    "productID": "11322",
+                    "productName": "TreeSchoolers Complete: Video + Music + PDF Guides",
+                    "category": "parents friends",
+                    "productSKU": "st_treeschoolers_complete_bundle",
+                    "productBlurb": " Get ready for kindergarten with all five Rachel & the TreeSchoolers digital videos, songs, and activity guides! Includes: A Rainy Day, Plants and Flowers, Incredible Insects, The Amazing Human Body, and Happy, Healthy Me. ",
+                    "publisherName": "Signing Time",
+                    "byLine": " Host: Rachel Coleman   Producer: Two Little Hands ",
+                    "searchString": "TreeSchoolers Complete: Video + Music + PDF Guides st_treeschoolers_complete_bundle Host: Rachel Coleman   Producer: Two Little Hands Two Little Hands K-3 TreeSchoolers kids & family Preschool Bundles Music",
+                    "productPrice": "74.99",
+
+        },
+                {
+                    "productID": "14782",
+                    "productName": "Total Training(TM) All Access Library - 90 Day Subscription",
+                    "category": "tech friends",
+                    "productSKU": "tt_allaccess_90day",
+                    "productBlurb": " This comprehensive library gives you access to every online training title!  This is perfect for creative pros, designers, developers, office enthusiasts who need to master a new technique, or learn an entire program.  ",
+                    "publisherName": "Total Training",
+                    "byLine": " Publisher: Total Training ",
+                    "searchString": "Total Training(TM) All Access Library - 90 Day Subscription tt_allaccess_90day Publisher: Total Training Total Training visual arts Subscription",
+                    "productPrice": "72.99",
+
+        },
+                {
+                    "productID": "14844",
+                    "productName": "Raise Some Bell Complete Workout",
+                    "category": "bumba",
+                    "productSKU": "amydixon_raisebell",
+                    "productBlurb": " This is the Ultimate Kettle workout! It flawlessly combines traditional kettlebell exercises with the current conditioning techniques for incredibly effective results.  ",
+                    "publisherName": "Amy Dixon Fitness",
+                    "byLine": " Instructor: Amy Dixon • Publisher: Amy Dixon Fitness ",
+                    "searchString": "Raise Some Bell Complete Workout amydixon_raisebell Instructor: Amy Dixon  Publisher: Amy Dixon Fitness Amy Dixon Fitness health & fitness Amy Dixon Fitness Kettlebell Bundles Fitness",
+                    "productPrice": "19.99",
+
+        },
+                {
+                    "productID": "39972",
+                    "productName": "BodyFIT 360: Bodyweight Dance Conditioning Volume 2",
+                    "category": "megamindy",
+                    "productSKU": "brfi_bodyweightdance",
+                    "productBlurb": "  Michelle has created this 2nd edition of her cutting edge, bodyweight and dance-conditioning workout for those looking for a new and challenging way to feel strong, flexible, lean and fit. ",
+                    "publisherName": "Breakthru Fitness",
+                    "byLine": "   Taught by:  Michelle Dozois   •   Publisher:  Breakthru Fitness ",
+                    "searchString": "BodyFIT 360: Bodyweight Dance Conditioning Volume 2 brfi_bodyweightdance   Taught by:  Michelle Dozois      Publisher:  Breakthru Fitness Breakthru Fitness health & fitness Michelle Dozois Weight loss Mobile Friendly",
+                    "productPrice": "19.99",
+            },
+                {
+                    "productID": "1945",
+                    "productName": "Health Tai Chi - Chi Kung",
+                    "category": "megamindy",
+                    "productSKU": "mwg_healthtaichi1",
+                    "productBlurb": "  Master Wong's Health Tai Chi & Chi Kung is an effective method of improving and maintaining your physical and mental capabilities. By increasing your awareness of the internal aspects of your body and teaching you exercises which work on enhancing its natural healing capabilities. ",
+                    "publisherName": "Master Wong Group",
+                    "byLine": "   Taught by:  Michelle Dozois   •   Publisher:  Breakthru Fitness ",
+                    "searchString": "BodyFIT 360: Bodyweight Dance Conditioning Volume 2 brfi_bodyweightdance   Taught by:  Michelle Dozois      Publisher:  Breakthru Fitness Breakthru Fitness health & fitness Michelle Dozois Weight loss Mobile Friendly",
+                    "productPrice": "25.00",
+            }
+    ];
+        });
+    </script>
+
+</body>
+
+</html>
