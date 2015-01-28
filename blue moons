@@ -379,8 +379,11 @@ Lesson 20, Roy's final lesson, will cover various forms of bass guitar - 4, 5, 6
         <div class="chapters" style="display: none;">
             <div class="ui grid segment">
                     <div class="ui four wide column vertical pointing menu" id="replaceMenu" style="background: rgba(255, 255, 255, 0.85);">
-
-                    </div>
+                      
+                      <div id="back" class="labeled icon header item">'
+                        <i class="arrow left icon" style="float:left"></i>Back</div>
+                      </div>
+                    
                     <div class="ui twelve wide column chapterContent">
                         <h2>Content</h2>
                         <img src="http://www.onlinelessonreviews.com/images/bass-guitar/screenshots/teach-me-bass-guitar13.jpg" width="100%" />
@@ -461,7 +464,7 @@ Lesson 20, Roy's final lesson, will cover various forms of bass guitar - 4, 5, 6
                     	"out": "00:35:24.00"
                     	}]
                 	},{
-                	"chapterName": "Getting Started",
+                	"chapterName": "Tuning Up",
                 	"chapterType": "item",
                 	"chapterMovieURL": "vault.blahblah.mp4",
                 	"loopPoints": [{}]
@@ -474,6 +477,8 @@ Lesson 20, Roy's final lesson, will cover various forms of bass guitar - 4, 5, 6
                 $(".theHeader").velocity("transition.slideUpBigIn");
                 
                 };
+                
+                //------------------------------------------------------------------------------------------------------------------------
              
               // when you click a chapters button in a lesson card 
               $('.attached.button').click(function() {
@@ -485,19 +490,35 @@ Lesson 20, Roy's final lesson, will cover various forms of bass guitar - 4, 5, 6
                 
                 // var currentLesson = (localStorage.getItem("currentLesson")) - 1 ;
                 
-                console.log(currentLessonIndex);
+                console.log("currentLessonIndex = " + currentLessonIndex);
                 
                 // // then grab the correct chapter names
-                var lengthOfChapters = lessonData[currentLessonIndex].chapters.length;
-                console.log(lengthOfChapters);
-                var currentChapterList = ''; 
-                  for (i = 0; i < lengthOfChapters; i++) {
-                    currentChapterList += '<div class="' + lessonData[currentLessonIndex].chapters[i].chapterType + '">' + lessonData[currentLessonIndex].chapters[i].chapterName + '</div>';
-                    };
-                console.log(currentChapterList);
+                // var lengthOfChapters = lessonData[currentLessonIndex].chapters.length;
+                // console.log(lengthOfChapters);
                 
+                // var currentChapterList = ''; 
+                //   for (i = 0; i < lengthOfChapters; i++) {
+                //     currentChapterList += '<div class="' + lessonData[currentLessonIndex].chapters[i].chapterType + '">' + lessonData[currentLessonIndex].chapters[i].chapterName + '</div>';
+                //     };
+                // console.log(currentChapterList);
+                
+                  var currentChapterList, chapterCSSclass, chapterName;
+
+              for (var i in lessonData[0].chapters) {
+                
+                chapterCSSclass = lessonData[currentLessonIndex].chapters[i].chapterType;
+                chapterName = lessonData[currentLessonIndex].chapters[i].chapterName;
+  
+                currentChapterList +=
+                '<div class="' + chapterCSSclass + '">'
+                + chapterName
+                + '</div>';
+  
+              }
+
+
                 //and write them to the page
-                document.getElementById("replaceMenu").innerHTML = '<div id="back" class="labeled icon header item"><i class="arrow left icon" style="float:left"></i>  Back</div><div class="header item"><h2>Chapters</h2></div>' + currentChapterList;
+                document.getElementById("replaceMenu").innerHTML += currentChapterList;
                 
 
                 // // then do the transition to the lesson:
@@ -515,7 +536,7 @@ Lesson 20, Roy's final lesson, will cover various forms of bass guitar - 4, 5, 6
                 
                 // back to lessons menu
                 $('#back').click(function(){
-                  console.log("HEYLO")
+                  console.log("HEYLO");
                     $(".chapters").velocity("transition.slideDownOut", {complete: function() { 
                     $(".lessons").velocity({ opacity: 1 }, { display: "block" });
                     $(".ui.fluid.card").velocity("transition.flipBounceXIn", { stagger: 60 });
