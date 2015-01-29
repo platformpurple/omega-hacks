@@ -8,19 +8,18 @@
     <title>Kleurplaten</title>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.2.0/semantic.min.css" type="text/css" />
     <link rel="stylesheet" href="style.css" type="text/css" />
-    <link rel="stylesheet" href="animate.css" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.2.0/semantic.js"></script>
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js"></script>
+    
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.ui.js"></script>
 
 </head>
 
 <body>
-
-    <div ng-app="gifts" ng-controller="MainCtrl" id="browse">
-
 
         <div class="ui grid">
 
@@ -90,11 +89,11 @@
             </div>
         </div>
 
-        <div class="ui doubling six column row isotope" style="height:1600px;">
+        <div class="ui doubling six column row isotope">
            
             <div class="column element-item bumba">
                 <div class="ui centered small image">
-                    <img src="http://wanagogo.com/wp-content/uploads/bumba_snow3.jpg">
+                    <img onclick="printMe()" src="http://wanagogo.com/wp-content/uploads/bumba_snow3.jpg">
                 </div>
             </div>
             <div class="column element-item plop">
@@ -220,7 +219,8 @@
 
 
     <script type="text/javascript">
-        function moreInfo(productID) {
+        
+        function printMe() {
             var w = window.open("https://shop.platformpurple.com/product/?shop=3167&product=" + productID, "1330995918322", "width=1000,height=820,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1");
             w.focus();
             return false;
@@ -229,6 +229,8 @@
         // -----  ----- //
 
         docReady(function () {
+            
+            
             // init Isotope
             var iso = new Isotope('.isotope', {
                 itemSelector: '.element-item',
@@ -251,16 +253,28 @@
                     filter: filterValue
                 });
             });
+            
+            // when they click to print
+            
+           
+            
+//            $(".ui.centered.small.image").click(function() {
+//              console.log(this);
+//              //   var target = $( event.target );
+//              //   alert(target);
+//              // $(".item").removeClass("active");
+//              // target.addClass("active");
+//            });
+            
+            
+            // page animations
+            $(".ui.grid>.row>.column").velocity({ opacity: 1 }, { display: "block" });   
+            $(".ui.grid>.row>").velocity("transition.bounceIn", { stagger: 160 });
+            $(".column.element-item").velocity("transition.flipBounceXIn", { stagger: 160 });
 
-            // change is-checked class on buttons
-            var buttonGroups = document.querySelectorAll('.button-group');
-            for (var i = 0, len = buttonGroups.length; i < len; i++) {
-                var buttonGroup = buttonGroups[i];
-                radioButtonGroup(buttonGroup);
-            }
 
         });
-
+        
     </script>
 
 </body>
