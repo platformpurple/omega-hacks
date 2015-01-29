@@ -1,0 +1,221 @@
+
+* {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', arial, sans-serif;
+    padding: 1em;
+    background: #fff;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Raleway', arial, sans-serif;
+}
+
+.hideAtFirst {
+    display: none;
+}
+
+.character-name {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.ui.stackable.two.column.grid {
+  padding: 24px 0;
+}
+
+.container {
+  width: 50%;
+  float: left;
+  padding: 4em 2em;
+  background: #fff;
+  margin-bottom: 1em;
+  }
+  @media (max-width: 800px) {
+      .container {
+  width: 100%;
+  float: none;
+  padding: 3em;
+  }
+}
+  /* ---- button ---- */
+
+  .spbutton {
+      width: 100% !important;
+  }
+
+  .ui.fluid.buttons, .ui.fluid.buttons>.button {
+    font-size: .9em;
+    font-weight: normal;
+  }
+
+
+
+  /* ---- isotope ---- */
+
+  .isotope {
+    border: 1px solid #fff;
+    background:#efefef;
+    margin-top: 2em;
+  }
+
+  /* clear fix */
+  .isotope:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  /* ---- .element-item ---- */
+
+  .element-item {
+    position: relative;
+    float: left;
+    width: 12%;
+    height: auto;
+    margin: 1%;
+    padding: 10px;
+    color: #262524;
+    background: #fff;
+    min-height: 200px;
+  }
+    @media (max-width: 1400px) {
+    .element-item {
+      width:14%;
+    }
+  }
+    @media (max-width: 1200px) {
+    .element-item {
+      /* width:48%; */
+    }
+  }
+    @media (max-width: 760px) {
+    .element-item {
+      width:98%;
+    }
+  }
+
+  .element-item > * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .element-item .name {
+    position: absolute;
+
+    left: 10px;
+    top: 60px;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+  .element-item .symbol {
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    font-size: 42px;
+    font-weight: bold;
+    color: white;
+  }
+
+  .element-item .number {
+    position: absolute;
+    right: 8px;
+    top: 5px;
+  }
+
+  .element-item .weight {
+    position: absolute;
+    left: 10px;
+    top: 76px;
+    font-size: 12px;
+  }
+
+.productImage {
+    float: left;
+    margin: 0 16px 20px 0;
+  }
+
+.iconImg {
+    width: 64px;
+    background: #fff;
+    border-radius: 50%;
+    border: 3px solid;
+  }
+
+
+.buttonBlock {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+.productButton {
+
+}
+
+.productButton.info {
+  background: blue;
+}
+
+.productButton.gift {
+  background: orange;
+}
+
+.productButton.cart {
+  background: green;
+}
+
+.ui.button.mini {
+  font-size: 0.7rem !important;
+  font-weight: normal;
+  text-transform: uppercase;
+  margin:1px;
+}
+
+.ui.buttons.button {
+}
+.ui.big.button {
+padding: 1.52em;
+}
+
+@media (max-width: 1200px) {
+    .ui.big.button {
+padding: 1em;
+}
+}
+
+@media (max-width: 480px) {
+    .ui.big.button {
+padding: .5em;
+width: 100%;
+}
+}
+.productBlurb {
+
+}
+
+.ui.grid>.row>.column {
+padding-left: 0rem;
+padding-right: 0rem;
+}
+
+.ui.grid>.doubling.row>.column {
+display: inline-block!important;
+padding-top: 0rem!important;
+padding-bottom: 0rem!important;
+margin: 0!important;
+}
+
+.catButton:nth-child(1) {animation-delay: 0.0s; }
+.catButton:nth-child(2) {animation-delay: 0.5s; }
+.catButton:nth-child(3) {animation-delay: 1.0s; }
+.catButton:nth-child(4) {animation-delay: 1.5s; }
+.catButton:nth-child(5) {animation-delay: 2.0s; }
+.catButton:nth-child(6) {animation-delay: 2.5s; }
