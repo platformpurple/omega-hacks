@@ -10,6 +10,7 @@
  * @license **LICENSE**
  * @version 1.7.3
  */ ?>
+<!-- 
 <div id="masthead" class="navbar navbar-static-top oxy-mega-menu <?php echo implode( ' ', $classes ); ?>" role="banner">
     <div class="<?php echo $container_class; ?>">
 
@@ -22,9 +23,11 @@
             <?php oxy_create_logo(); ?>
         </div>
 
-        <nav class="collapse navbar-collapse main-navbar" role="navigation" style="background: rgba(255, 255, 255, 0.5);">
+        <!~~ 
+<nav class="collapse navbar-collapse main-navbar" role="navigation" style="background: rgba(255, 255, 255, 0.5);">
 
-            <?php
+            <!~~ 
+<?php
                 $primary_menu = wp_get_nav_menu_items( $slug );
                 if ( !empty( "cat" ) ) {
                     wp_nav_menu( array(
@@ -35,10 +38,24 @@
                     ));
                 }
             ?>
+ ~~>
 
         </nav>
+ ~~>
     </div>
 </div>
+ -->
+ <style>
+#swatch_social-2 {
+display: none;
+}
+.frfooter {
+display: none;
+}
+.nlfooter {
+display: none;
+}
+</style>
 <br>
 <?php
 if( have_posts() ) {
